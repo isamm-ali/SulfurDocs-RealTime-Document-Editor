@@ -2,7 +2,7 @@
 
 A Google Docs-style document editor built from scratch with Flutter, Node.js, MongoDB and Socket.IO.
 
-<video src="https://raw.githubusercontent.com/isamm-ali/SulfurDocs-RealTime-Document-Editor/main/images/clipsulfurdocs.mp4" controls width="800"></video>
+[<video src="https://raw.githubusercontent.com/isamm-ali/SulfurDocs-RealTime-Document-Editor/main/images/clipsulfurdocs.mp4" controls width="800"></video>](https://github.com/user-attachments/assets/22b04eb9-9b0e-4e04-814d-14cee1c63d68)
 
 ![Document Editor](https://raw.githubusercontent.com/isamm-ali/Realtime-Document-Editor/main/images/image1.png)
 
