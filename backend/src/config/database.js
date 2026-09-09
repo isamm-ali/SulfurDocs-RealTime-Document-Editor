@@ -1,11 +1,10 @@
 import mongoose from "mongoose";
 
 export const connectDB = async () => {
-  try {
-    const db = process.env.MONGO_CONNECTION;
-    await mongoose.connect(db);
-    console.log("Database connection successful");
-  } catch (error) {
-    console.error("Database connection failed:", error);
+  const db = process.env.MONGO_CONNECTION;
+  if (!db) {
+    throw new Error("MONGO_CONNECTION is not set");
   }
+  await mongoose.connect(db);
+  console.log("Database connection successful");
 };

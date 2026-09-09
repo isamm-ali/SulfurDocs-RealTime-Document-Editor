@@ -6,6 +6,7 @@ import 'package:frontend/providers/document_repository_provider.dart';
 import 'package:frontend/models/document_model.dart';
 import 'package:frontend/repositories/socket_repository.dart';
 import 'package:routemaster/routemaster.dart';
+import 'package:frontend/providers/user_provider.dart';
 
 import 'dart:async';
 
@@ -23,42 +24,48 @@ class _DocumentScreenState extends ConsumerState<DocumentScreen> {
   );
 
   final QuillController quillController = QuillController.basic();
-  final SocketRepository socketRepository = SocketRepository();
-
+  SocketRepository? socketRepository;
   StreamSubscription? _localChangesSub;
+  Timer? _autoSaveTimer;
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final repository = SocketRepository();
+      socketRepository = repository;
+      repository.connectFromStorage();
+      repository.joinRoom(widget.id);
+      repository.changeListener((data) {
+        debugPrint('RECEIVED CHANGES: $data');
+        if (!mounted) {
+          return;
+        }
+        final delta = data['delta'];
+        if (delta is List) {
+          quillController.compose(
+            Delta.fromJson(delta),
+            quillController.selection,
+            ChangeSource.remote,
+          );
+        }
+      });
 
-    socketRepository.joinRoom(widget.id);
+      fetchDocumentData();
 
-    socketRepository.changeListener((data) {
-      debugPrint('RECEIVED CHANGES: $data');
-
-      if (!mounted) return;
-
-      final delta = data['delta'];
-
-      if (delta is List) {
-        quillController.compose(
-          Delta.fromJson(delta),
-          quillController.selection,
-          ChangeSource.remote,
-        );
-      }
-    });
-
-    fetchDocumentData();
-
-    Timer.periodic(const Duration(seconds: 2), (timer) {
-      if (!mounted) {
-        timer.cancel();
-        return;
-      }
-      socketRepository.autoSave(<String, dynamic>{
-        'delta': quillController.document.toDelta().toJson(),
-        'documentId': widget.id,
+      _autoSaveTimer = Timer.periodic(const Duration(seconds: 2), (timer) {
+        if (!mounted) {
+          timer.cancel();
+          return;
+        }
+        final repository = socketRepository;
+        if (repository == null) {
+          return;
+        }
+        repository.autoSave({
+          'delta': quillController.document.toDelta().toJson(),
+          'documentId': widget.id,
+        });
       });
     });
   }
@@ -68,12 +75,15 @@ class _DocumentScreenState extends ConsumerState<DocumentScreen> {
     _localChangesSub = quillController.document.changes.listen((event) {
       if (event.source == ChangeSource.local) {
         debugPrint('SENDING TYPING: ${event.change}');
-
+        final repository = socketRepository;
+        if (repository == null) {
+          return;
+        }
         final data = <String, dynamic>{
           'delta': event.change.toJson(),
           'room': widget.id,
         };
-        socketRepository.typing(data);
+        repository.typing(data);
       }
     });
   }
@@ -88,7 +98,6 @@ class _DocumentScreenState extends ConsumerState<DocumentScreen> {
       final quillDocument = document.content.isNotEmpty
           ? Document.fromJson(document.content)
           : Document();
-
       quillController.document = quillDocument;
       _attachLocalChangesListener();
       if (mounted) {
@@ -97,16 +106,26 @@ class _DocumentScreenState extends ConsumerState<DocumentScreen> {
         });
       }
     } else {
-      _attachLocalChangesListener();
+      debugPrint('DOCUMENT LOAD FAILED: ${result['message']}');
+
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(result['message'] ?? 'Failed to load document'),
+          ),
+        );
+      }
     }
   }
 
   @override
   void dispose() {
+    _autoSaveTimer?.cancel();
     _localChangesSub?.cancel();
-    socketRepository.removeChangeListener();
+    socketRepository?.dispose();
     nameController.dispose();
     quillController.dispose();
+
     super.dispose();
   }
 

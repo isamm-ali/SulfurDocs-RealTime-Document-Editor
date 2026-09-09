@@ -1,23 +1,12 @@
 import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:frontend/providers/signup_provider.dart';
+import 'package:frontend/config/environment.dart';
 
 class AuthService {
-  static String get baseUrl {
-    if (kIsWeb) {
-      return 'http://localhost:5000';
-    }
-
-    if (defaultTargetPlatform == TargetPlatform.android) {
-      return 'http://10.0.2.2:5000';
-    }
-
-    return 'http://localhost:5000';
-  }
-
+  static String get baseUrl => Environment.apiUrl;
   static Map<String, dynamic> _decodeResponse(http.Response response) {
     try {
       final decoded = jsonDecode(response.body);
@@ -105,6 +94,7 @@ class AuthService {
   Future<Map<String, dynamic>?> getStoredUserData() async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
+
     if (token == null || token.isEmpty) {
       return null;
     }

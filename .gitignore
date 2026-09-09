@@ -1,2 +1,10 @@
 .env
+.env.*
+!.env.example
+
 backend/node_modules/
+frontend/.dart_tool/
+frontend/build/
+frontend/.flutter-plugins
+frontend/.flutter-plugins-dependencies
+frontend/.packages
