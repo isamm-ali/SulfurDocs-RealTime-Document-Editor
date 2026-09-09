@@ -31669,7 +31669,7 @@ var $async$aj8=A.I(function(b,c){if(b===1){o.push(c)
 s=p}for(;;)switch(s){case 0:p=4
 k=t.N
 s=7
-return A.H(A.aZy(A.cS("http://localhost:5000/signup",0,null),B.b8.xv(A.D(["username",B.c.bU(a.a),"email",B.c.bU(a.b).toLowerCase(),"password",a.c,"pfp",a.d],k,k),null),B.JH),$async$aj8)
+return A.H(A.aZy(A.cS("https://sulfurdocs-backend.onrender.com/signup",0,null),B.b8.xv(A.D(["username",B.c.bU(a.a),"email",B.c.bU(a.b).toLowerCase(),"password",a.c,"pfp",a.d],k,k),null),B.JH),$async$aj8)
 case 7:n=c
 m=A.b_t(n)
 j=n.b>=200&&n.b<300
@@ -31703,7 +31703,7 @@ var $async$aj7=A.I(function(c,d){if(c===1){o.push(d)
 s=p}for(;;)switch(s){case 0:p=4
 j=t.N
 s=7
-return A.H(A.aZy(A.cS("http://localhost:5000/signin",0,null),B.b8.xv(A.D(["email",B.c.bU(a).toLowerCase(),"password",b],j,j),null),B.JH),$async$aj7)
+return A.H(A.aZy(A.cS("https://sulfurdocs-backend.onrender.com/signin",0,null),B.b8.xv(A.D(["email",B.c.bU(a).toLowerCase(),"password",b],j,j),null),B.JH),$async$aj7)
 case 7:n=d
 m=A.b_t(n)
 l=n.b>=200&&n.b<300
@@ -114445,8 +114445,8 @@ case 1:return A.J(p.at(-1),r)}})
 return A.L($async$I1,r)}}
 A.ayQ.prototype={}
 A.aGy.prototype={
-amH(){var s,r,q,p,o,n=this,m=null,l="http://localhost:5000",k="query",j=t.N,i=t.z,h=A.D(["autoConnect",!1,"transports",A.c(["polling","websocket"],t.s),"reconnection",!0,"reconnectionAttempts",5,"reconnectionDelay",1000],j,i),g=A.cS(l,0,m),f=g.ghP()+"://"+g.goC()+":"+g.gtl(),e=g.gfU(),d=$.aYG.L(f)&&$.aYG.h(0,f).d.L(e),c=J.e(h.h(0,"forceNew"),!0)||J.e(h.h(0,"force new connection"),!0)||!1===h.h(0,"multiplex")||d,b=A.c2()
-if(c){$.bfD().bo(B.w,"ignoring socket cache for http://localhost:5000",m,m)
+amH(){var s,r,q,p,o,n=this,m=null,l="https://sulfurdocs-backend.onrender.com",k="query",j=t.N,i=t.z,h=A.D(["autoConnect",!1,"transports",A.c(["polling","websocket"],t.s),"reconnection",!0,"reconnectionAttempts",5,"reconnectionDelay",1000],j,i),g=A.cS(l,0,m),f=g.ghP()+"://"+g.goC()+":"+g.gtl(),e=g.gfU(),d=$.aYG.L(f)&&$.aYG.h(0,f).d.L(e),c=J.e(h.h(0,"forceNew"),!0)||J.e(h.h(0,"force new connection"),!0)||!1===h.h(0,"multiplex")||d,b=A.c2()
+if(c){$.bfD().bo(B.w,"ignoring socket cache for https://sulfurdocs-backend.onrender.com",m,m)
 b.b=A.b77(h,l)}else{s=$.aYG.h(0,f)
 if(s==null){s=A.b77(h,l)
 $.aYG.m(0,f,s)}b.b=s}if(g.goT().length!==0&&h.h(0,k)==null)h.m(0,k,g.goT())
@@ -115280,7 +115280,7 @@ var $async$D6=A.I(function(b,c){if(b===1){o.push(c)
 s=p}for(;;)switch(s){case 0:p=4
 j=t.N
 s=7
-return A.H(A.b2Z(A.cS("http://localhost:5000/me",0,null),A.D(["Authorization","Bearer "+a],j,j)),$async$D6)
+return A.H(A.b2Z(A.cS("https://sulfurdocs-backend.onrender.com/me",0,null),A.D(["Authorization","Bearer "+a],j,j)),$async$D6)
 case 7:n=c
 if(n.b!==200){q=null
 s=1
@@ -115314,7 +115314,7 @@ GZ(a){return this.aKm(a)},
 aKm(a){var s=0,r=A.M(t.d),q,p=2,o=[],n,m,l,k,j,i,h,g
 var $async$GZ=A.I(function(b,c){if(b===1){o.push(c)
 s=p}for(;;)switch(s){case 0:p=4
-l=A.cS("http://localhost:5000/doc/create",0,null)
+l=A.cS("https://sulfurdocs-backend.onrender.com/doc/create",0,null)
 k=t.N
 j=A.D(["Content-Type","application/json","Authorization","Bearer "+a],k,k)
 s=7
@@ -115352,7 +115352,7 @@ var $async$D2=A.I(function(b,c){if(b===1){o.push(c)
 s=p}for(;;)switch(s){case 0:p=4
 j=t.N
 s=7
-return A.H(A.b2Z(A.cS("http://localhost:5000/doc/me",0,null),A.D(["Authorization","Bearer "+a],j,j)),$async$D2)
+return A.H(A.b2Z(A.cS("https://sulfurdocs-backend.onrender.com/doc/me",0,null),A.D(["Authorization","Bearer "+a],j,j)),$async$D2)
 case 7:n=c
 i=n
 m=B.b8.rI(A.ahQ(A.ahB(i.e)).h4(i.w),null)
@@ -115386,7 +115386,7 @@ var $async$D1=A.I(function(c,d){if(c===1){o.push(d)
 s=p}for(;;)switch(s){case 0:p=4
 l=t.N
 s=7
-return A.H(A.b2Z(A.cS("http://localhost:5000/doc/"+b,0,null),A.D(["Authorization","Bearer "+a],l,l)),$async$D1)
+return A.H(A.b2Z(A.cS("https://sulfurdocs-backend.onrender.com/doc/"+b,0,null),A.D(["Authorization","Bearer "+a],l,l)),$async$D1)
 case 7:n=d
 k=n
 m=B.b8.rI(A.ahQ(A.ahB(k.e)).h4(k.w),null)
@@ -115418,7 +115418,7 @@ IE(a,b,c){return this.aPB(a,b,c)},
 aPB(a,b,c){var s=0,r=A.M(t.d),q,p=2,o=[],n,m,l,k,j,i,h,g
 var $async$IE=A.I(function(d,e){if(d===1){o.push(e)
 s=p}for(;;)switch(s){case 0:p=4
-l=A.cS("http://localhost:5000/doc/name",0,null)
+l=A.cS("https://sulfurdocs-backend.onrender.com/doc/name",0,null)
 k=t.N
 j=A.D(["Content-Type","application/json","Authorization","Bearer "+c],k,k)
 s=7
