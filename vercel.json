@@ -1,0 +1,4 @@
+{
+  "buildCommand": "git clone --depth 1 https://github.com/flutter/flutter.git -b stable $HOME/flutter && export PATH=\"$HOME/flutter/bin:$PATH\" && flutter config --enable-web && cd frontend && flutter pub get && flutter build web --release --dart-define=API_URL=$API_URL",
+  "outputDirectory": "frontend/build/web"
+}
