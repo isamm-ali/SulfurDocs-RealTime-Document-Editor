@@ -1,6 +1,6 @@
 # SulfurDocs
 
-A Google Docs-style collaborative document editor, built from scratch with Flutter, Node.js, MongoDB, and Socket.IO.
+A cross-platform, Google Docs-style collaborative document editor, built from scratch with Flutter, Node.js, MongoDB, and Socket.IO.
 
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=flat&logo=flutter&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
