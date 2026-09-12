@@ -2,6 +2,7 @@
 
 A cross-platform, Google Docs-style collaborative document editor, built from scratch with Flutter, Node.js, MongoDB, and Socket.IO.
 
+
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=flat&logo=flutter&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
 ![Express](https://img.shields.io/badge/Express_5-000000?style=flat&logo=express&logoColor=white)
@@ -11,6 +12,7 @@ A cross-platform, Google Docs-style collaborative document editor, built from sc
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat&logo=vercel&logoColor=white)
 ![Render](https://img.shields.io/badge/Render-46E3B7?style=flat&logo=render&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 
 > **Live App:**
 [sulfurdocs.vercel.app](https://sulfurdocs.vercel.app)
