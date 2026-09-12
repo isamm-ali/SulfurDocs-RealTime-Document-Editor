@@ -12,7 +12,10 @@ A Google Docs-style collaborative document editor, built from scratch with Flutt
 ![Render](https://img.shields.io/badge/Render-46E3B7?style=flat&logo=render&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-**Live app:** [sulfurdocs.vercel.app](https://sulfurdocs.vercel.app)
+> **Live App:** 
+[sulfurdocs.vercel.app](https://sulfurdocs.vercel.app)
+
+> **Preview:**
 
 [<video src="https://raw.githubusercontent.com/isamm-ali/SulfurDocs-RealTime-Document-Editor/main/images/clipsulfurdocs.mp4" controls width="800"></video>](https://github.com/user-attachments/assets/22b04eb9-9b0e-4e04-814d-14cee1c63d68)
 
