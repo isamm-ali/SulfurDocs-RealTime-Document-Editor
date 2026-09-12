@@ -10,6 +10,7 @@ A Google Docs-style collaborative document editor, built from scratch with Flutt
 ![JWT](https://img.shields.io/badge/JWT-000000?style=flat&logo=jsonwebtokens&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat&logo=vercel&logoColor=white)
 ![Render](https://img.shields.io/badge/Render-46E3B7?style=flat&logo=render&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 **Live app:** [sulfurdocs.vercel.app](https://sulfurdocs.vercel.app)
 
@@ -190,4 +191,4 @@ I wanted to understand what actually sits behind a collaborative editor, past ju
 
 ## License
 
-No license has been added yet.
+MIT
