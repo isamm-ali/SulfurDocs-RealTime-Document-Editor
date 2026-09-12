@@ -13,7 +13,6 @@ A Google Docs-style collaborative document editor, built from scratch with Flutt
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 > **Live App:**
-
 [sulfurdocs.vercel.app](https://sulfurdocs.vercel.app)
 
 
